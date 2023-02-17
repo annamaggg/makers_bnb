@@ -173,7 +173,6 @@ RSpec.describe Application do
 
         expect(response).to be_redirect
         follow_redirect!
-        #expect(last_response.body).to include('<p>Space id: 3</p>')
         expect(last_response.body).to include('<p>Date: 2023-02-16</p>')
       end
     end

@@ -1,21 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MakersBnB</title>
-  <link rel="stylesheet" href="/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="icon" href="/Makersbnb-logo.png" type="image/png" sizes="16x16"> 
+  <link href="createaccount.css" rel="stylesheet">
 </head>
+
 <body>
+<body>
+  <section id="signup" class="sign-up">
+    <div class="container">
+      <div class="row text-center">
+        <h1 class="display-3 fw-bold text-capitalize">New Listing</h1>
+        <div class="heading-line"></div>
+        <p class="lh-lg">
+          Add another listing to make more £££
+        </p>
+      </div>
+      
+      <div class="row d-flex justify-content-center">
+        <div class="col-12 col-lg-6 bg-white shadow p-3">
+          <div class="form w-100 pb-3 text-center">
+            <h4 class="display-3--title mb-5">Create Listing</h4>
+            <form class="row">
 
-<form action="new" method="POST">
-  <input name="name" placeholder="Name" type="text" required/>
-  <input name="price" placeholder="Price" type="number" required/>
-  <input name="description" placeholder="Description" type="text" required/>
-  <button type="submit">Submit</button>
-</form>
+              <div class="form-floating mb-3">
+                <input name="name" class="shadow form-control form-control-lg" id="floatingInput" placeholder="Name"
+                  required>
+                <label for="floatingInput">Name</label>
+              </div>
 
-<% if @error %>
-  <p><%= @error %></p>
-<% end %>
+              <div class="input-group form-floating mb-3">
+                <span class="input-group-text">£</span>
+                <div class = "form-floating">
+                  <input name="price" class="shadow form-control form-control-lg" id="floatingInput"
+                    placeholder="Price per night" required>
+                    <label for="floatingInput">Price per night</label>
+                </div>
+              </div>
 
+              <div class="form-floating mb-3">
+                <input name="description" class="shadow form-control form-control-lg" id="floatingInput" placeholder="Description"
+                  required>
+                <label for="floatingInput">Description</label>
+              </div>
+
+              <div class="text-center d-grid mt-1">
+                <button type="submit" class="btn btn-primary rounded-pill pt-3 pb-3" formaction="/new" formmethod="POST">
+                  Sign up now!
+                </button>
+              </div>
+            </form>
+            <% if @error %>
+              <p><%= @error %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
