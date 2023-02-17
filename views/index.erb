@@ -16,19 +16,15 @@
           <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
             <img src="/Makersbnb-logo.png" alt="Logo" width="30" height="24">
           </a>
-
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
           <% if @user %>
-            <p class="text-start">
-              Hello <%= @user.name %>
-            </p>
+            <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
+            <li><a href="/my_spaces"class="nav-link px-2 text-white">My spaces</a></li>
+            <li><a href="/bookings" class="nav-link px-2 text-white">Bookings</a></li>
+          </ul>
             <form class="text-end">
               <button type="submit" class="btn btn-warning" formaction="/logout" formmethod="POST">Log out</button>
             </form>
-            <li><a href="/my_spaces"class="nav-link px-2 text-secondary">My spaces</a></li>
-            <li><a href="/bookings" class="nav-link px-2 text-secondary">Bookings</a></li>
-          </ul>
             <% else %>
               <form class="text-end">
                 <button type="submit" class="btn btn-outline-light me-2" formaction="/login">Log in</button>
