@@ -1,39 +1,86 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MakersBnB</title>
-  <link rel="stylesheet" href="/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="icon" href="/Makersbnb-logo.png" type="image/png" sizes="16x16">
 </head>
+
 <body>
+  <header class="p-3 text-bg-dark">
+    <nav>
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <img src="/Makersbnb-logo.png" alt="Logo" width="30" height="24">
+          </a>
 
-<% if @user %>
-  <p>Hello <%= @user.name %></p>
-  <form action="/logout" method="POST">
-    <button type="submit">Log out</button>
-  </form>
-  <a href="/my_spaces">My spaces</a>
-  <a href="/bookings">My bookings</a>
-  <a href="/owner_bookings">Bookings of my listings</a>
-<% else %>
-  <form action="/login">
-    <button type="submit">Log in</button>
-  </form>
-  <form action="/signup">
-    <button type="submit">Sign up</button>
-  </form>
-<% end %>
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
+          <% if @user %>
+            <p class="text-start">
+              Hello <%= @user.name %>
+            </p>
+            <form class="text-end">
+              <button type="submit" class="btn btn-warning" formaction="/logout" formmethod="POST">Log out</button>
+            </form>
+            <li><a href="/my_spaces"class="nav-link px-2 text-secondary">My spaces</a></li>
+            <li><a href="/bookings" class="nav-link px-2 text-secondary">Bookings</a></li>
+          </ul>
+            <% else %>
+              <form class="text-end">
+                <button type="submit" class="btn btn-outline-light me-2" formaction="/login">Log in</button>
+                <button type="submit" class="btn btn-warning" formaction="/signup">Sign up</button>
+              </form>
+            <% end %>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-<% @spaces.each do |space| %>
-  <%= space.name %><br>
-  <%= space.description %><br>
-  £<%= space.price %> ppn<br>
-  <form action="/book_space" method="POST">
-    <input type="hidden" name="id" value="<%= space.id %>"/>
-    <input type="hidden" name="date_of_booking" value="<%= Date.today %>"/>
-    <button type="submit">Book</button>
-  </form>
-  <br>
-<% end %>
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <img src="/Fulllogo.png" alt="Logo" class="img-fluid">
+        <h1 class="fw-light">Makersbnb</h1>
+        <p class="lead text-muted">Find the perfect place to stay at an amazing price in only 1 country. Stay anywhere
+          local with Makers bnb</p>
+      </div>
+    </div>
+  </section>
 
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <% @spaces.each do |space| %>
+          <div class="col">
+            <div class="card shadow-sm">
+              <img src="/house.jpg" class="card-img-top mx-auto">
+              <div class="card-body">
+                <h5 class="card-title text-center">
+                  <%= space.name %>
+                </h5>
+                <p class="card-text text-center">
+                  <%= space.description %>
+                </p>
+                <p class="card-text text-center">£<%= space.price %> ppn</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group mx-auto">
+                    <form action="/book_space" method="POST">
+                      <input type="hidden" name="id" value="<%= space.id %>" />
+                      <input type="hidden" name="date_of_booking" value="<%= Date.today %>" />
+                      <button type="submit" class="btn btn-danger btn-lg">Book Now!</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
