@@ -337,4 +337,15 @@ RSpec.describe Application do
       expect(response.body).to include('<h1>Bookings on my listings</h1>')
     end
   end
+
+  context 'POST /owner_bookings/approve' do 
+    it "approves booking request, button dissapears, shows approved under property" do 
+      response = post('/owner_bookings/approve', {}, { 'rack.session' => { user_id: '1' } })
+
+      expect(response.status).to eq(200)
+      expect(response.body).to include('<h1>Bookings on my listings</h1>')
+      expect(response.body).to include('<p>Approved: true</p>')
+      expect(response.body).to include('Paradise Beach')
+    end
+  end
 end
