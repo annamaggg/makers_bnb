@@ -25,7 +25,6 @@
             <button type="submit" class="btn btn-warning" formaction="/logout" formmethod="POST">Log out</button>
           </form>
         </div>
-
       </div>
     </nav>
   </header>
@@ -63,9 +62,12 @@
                       <input type="hidden" name="id" value="<%= space.id %>" />
                       <input type="hidden" name="date_of_booking" value="<%= Date.today %>" />
                       <button type="submit" class="btn btn-warning btn-lg" formaction="/my_spaces/<%= space.id %>/edit">Edit</button>
-                      <button type="submit" class="btn btn-danger btn-lg" formaction="/my_spaces/delete/<%= space.id %>" method="POST">Delete</button>
                     </form>
-                  </div>
+                    <form action="my_spaces/delete" method="POST">
+                        <input type="hidden" name="id" value="<%= space.id %>"/>
+                        <button type="submit" class="btn btn-danger btn-lg">Delete</button>
+                    </form>
+                 </div>
                 </div>
               </div>
             </div>
