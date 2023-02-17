@@ -13,7 +13,16 @@
     <p>Date: <%= booking.date_of_booking %></p>
     <p>Approved: <%= booking.approved %></p>
     <p>Name: <%= booking.name %></p>
+
+  <form method="POST" action="/approve">
+    <input type="hidden" name="id" value="<%= booking.id %>">
+    <input type="hidden" name="booking" value="<%= booking %>">
+    <button type="submit">Approve</button>
+</form>
+
   </div>
 <% end %>
 </body>
 </html>
+
+

@@ -9,5 +9,5 @@ VALUES ('Paradise Beach', 'true', 'Seaside getaway', '120', '1'),
        ('Countryside Lodge', 'false', 'Quiet, welcoming and cozy', '80', '2'),
        ('Seaside Spa', 'true', 'Great pampering escape', '150', '2');
 INSERT INTO bookings (date_of_booking, approved, user_id, space_id)
-VALUES ('2023-02-10', 'true', '2', '1'),
-       ('2023-02-13', 'true', '1', '2');
+VALUES ('2023-02-10', 'false', '2', '1'),
+       ('2023-02-13', 'false', '1', '2');

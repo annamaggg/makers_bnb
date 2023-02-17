@@ -160,6 +160,19 @@ class Application < Sinatra::Base
     erb(:owner_bookings)
   end  
 
+  post '/approve' do 
+    redirect('/login') unless session[:user_id]
+    current_user_id = session[:user_id]
+    repo = BookingRepository.new
+    booking = repo.find_all('id', params[:id])
+    repo.update(booking.first, 'approved', 'true')
+
+    repo = BookingRepository.new
+    @owner_bookings = repo.bookings_with_spaces_owner(current_user_id)
+
+    return erb(:owner_bookings)
+  end
+    
   post '/my_spaces/delete' do
     repo = SpaceRepository.new
 
