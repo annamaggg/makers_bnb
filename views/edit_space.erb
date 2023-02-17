@@ -1,28 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MakersBnB</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="icon" href="/Makersbnb-logo.png" type="image/png" sizes="16x16">
+</head>
+<head>
   <title>Edit space</title>
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-
-<h1>Edit space</h1>
-
-<form action="/my_spaces/<%= @space.id %>/edit" method="post">
-  <label for="name">Name</label>
-  <input type="text" id="name" name="name" value="<%= @space.name %>">
-
-  <label for="description">Description</label>
-  <textarea id="description" name="description"><%= @space.description %></textarea>
-
-  <label for="price">Price per night</label>
-  <input type="number" id="price" name="price" value="<%= @space.price %>">
-
-  <label for="available">Available</label>
-  <input type="text" id="available" name="available" value="<%= @space.available %>">
-
-  <button type="submit">Save changes</button>
-</form>
-
+  <header class="p-3 text-bg-dark">
+    <nav>
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <img src="/Makersbnb-logo.png" alt="Logo" width="30" height="24">
+          </a>
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
+            <form class="text-end">
+              <button type="submit" class="btn btn-warning" formaction="/logout" formmethod="POST">Log out</button>
+            </form>
+            <li><a href="/my_spaces"class="nav-link px-2 text-secondary">My spaces</a></li>
+            <li><a href="/bookings" class="nav-link px-2 text-secondary">Bookings</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+    <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <img src="/Fulllogo.png" alt="Logo" class="img-fluid">
+        <h1 class="fw-light mb-4">Edit your space</h1>
+      </div>
+    </div>
+  </section>
+  <div class="album py-5 bg-light">
+    <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form action="/my_spaces/<%= @space.id %>/edit" method="post">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" class="form-control" value="<%= @space.name %>" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" class="form-control" required><%= @space.description %></textarea>
+        </div>
+        <div class="form-group">
+          <label for="price">Price per night</label>
+          <input type="number" id="price" name="price" class="form-control" value="<%= @space.price %>" required>
+        </div>
+        <div class="form-group">
+          <label for="available">Available</label>
+          <input type="text" id="available" name="available" class="form-control" value="<%= @space.available %>" required>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 </body>
 </html>
+
