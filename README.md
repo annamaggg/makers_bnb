@@ -1,4 +1,6 @@
-# MakersBnB Project Seed
+# MakersBnB 
+
+! [Homepage screenshot](./public/homepage-screenshot.png)
 
 This repo contains the seed codebase for the MakersBnB project in Ruby (using Sinatra and RSpec).
 
