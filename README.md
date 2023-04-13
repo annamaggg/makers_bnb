@@ -1,10 +1,12 @@
-# MakersBnB 
 
-! [Homepage screenshot](./public/homepage-screenshot.png)
+<br />
+<div align="center">
+  <img width="861" alt="image" src="https://github.com/annamaggg/makers_bnb/blob/0afea1f5f8c47994158bbcc1f77b1a99a020d6cd/public/homepage-screenshot.png">
 
-This repo contains the seed codebase for the MakersBnB project in Ruby (using Sinatra and RSpec).
+  <h3 align="center">MakersBnb</h3>
+   
+</div>
 
-Someone in your team should fork this seed repo to their Github account. Everyone in the team should then clone this fork to their local machine to work on it.
 
 ## Setup
 
